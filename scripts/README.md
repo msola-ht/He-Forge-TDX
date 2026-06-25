@@ -28,6 +28,8 @@ python tdx.py <command> [args]
 - 选择通达信目录：`python scripts/setup_tdx_path.py --output table`
 - 查看全部候选：`python scripts/setup_tdx_path.py --show-all --output table`
 - 诊断当前生效路径：`python scripts/diagnose_tdx_path.py --output json`
+- 一次跑完整体基础冒烟：`python scripts/diagnostics/run_basic_tq_smoke.py --output table`
+- 如果要连订阅、自定义板块、消息发送、公式写入等副作用命令一起跑：`python scripts/diagnostics/run_basic_tq_smoke.py --include-write-ops --output table`
 - Windows 交互式路径配置入口：`setup_tdx_path.bat`
 
 ## 行情与基础数据

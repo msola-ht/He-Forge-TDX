@@ -7,6 +7,7 @@ from unittest.mock import patch
 import pandas as pd
 
 from lib.cli import runtime
+from lib.cli import basic_tq_smoke
 
 
 class _FakeTq:
@@ -46,6 +47,13 @@ class _FakeSendUserBlockByStocks:
 
 
 class CliRuntimeTests(unittest.TestCase):
+    def test_basic_tq_smoke_detects_empty_json_as_not_meaningful(self) -> None:
+        self.assertFalse(basic_tq_smoke._has_meaningful_json(""))
+        self.assertFalse(basic_tq_smoke._has_meaningful_json("{}"))
+        self.assertFalse(basic_tq_smoke._has_meaningful_json("[]"))
+        self.assertTrue(basic_tq_smoke._has_meaningful_json('{"Code":"000001.SZ"}'))
+        self.assertTrue(basic_tq_smoke._has_meaningful_json("[1]"))
+
     def test_run_tq_call_executes_default_connectivity_probe(self) -> None:
         fake_tq = _FakeTq([{"Code": "000001.SZ", "Name": "平安银行"}])
 

@@ -36,6 +36,15 @@ class CliHelpTests(unittest.TestCase):
             ("scripts/get_market_data.py", ["--period", PERIOD_CHOICES_TEXT, "--dividend_type {none,front,back}"]),
             ("scripts/subscribe_quote.py", ["--period", PERIOD_CHOICES_TEXT, "--dividend_type {none,front,back}"]),
             ("scripts/formula_format_data.py", ["--period", PERIOD_CHOICES_TEXT, "--dividend_type {none,front,back}"]),
+            (
+                "scripts/diagnostics/run_basic_tq_smoke.py",
+                [
+                    "--stock_code STOCK_CODE",
+                    "--include-write-ops",
+                    "--write_block_code WRITE_BLOCK_CODE",
+                    "--fail_fast",
+                ],
+            ),
         ]
 
         for script_path, snippets in cases:

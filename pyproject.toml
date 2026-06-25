@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tdx-v2"
 version = "0.1.0"
-description = "通达信 TQ Python 非交易接口命令行仓库"
+description = "基于通达信官方 TdxQuant 基础接口的 Python CLI 仓库"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -31,6 +31,7 @@ Homepage = "https://github.com/msola-ht/He-Forge-TDX"
 Repository = "https://github.com/msola-ht/He-Forge-TDX"
 Issues = "https://github.com/msola-ht/He-Forge-TDX/issues"
 Documentation = "https://github.com/msola-ht/He-Forge-TDX#readme"
+OfficialDocs = "https://help.tdx.com.cn/quant/"
 
 [project.scripts]
 tdx = "lib.tdx_unified:console_main"
