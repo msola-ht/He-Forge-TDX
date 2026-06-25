@@ -1,4 +1,4 @@
-# TDX-V2
+# He-Forge-TDX
 
 基于通达信官方 TdxQuant 基础接口的 Python 命令行仓库，聚焦非交易基础能力。
 
