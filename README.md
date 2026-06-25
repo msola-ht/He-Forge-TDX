@@ -102,6 +102,20 @@ python tdx.py get-market-data --stock_list 000001.SZ --period 1d --count 5 --out
 python tdx.py get-trading-calendar --market SH --start_time 20260601 --end_time 20260630 --output json
 ```
 
+## 图表示例
+
+下图展示基于分钟级板块资金流数据生成的行业看板示例，按研究行业一级汇总，展示盘中主力净额与主买净额两个口径下的流入、流出趋势，以及最新一轮的板块排名结果。
+
+<img src="assets/sector_money_flow_16_2026-06-25_both_batch115_113008.png" alt="板块资金流看板示例" width="780" />
+
+## 联系方式
+
+如需交流通达信 TQ Python 基础接口、AIGC 应用或相关协作，可通过以下方式联系：
+
+- 微信：`hlsaigc`
+- Telegram：`@hegenai`
+- 账号：`@何老师的AIGC` / `@HeGenAI`
+
 ## 基础命令分类
 
 ### 路径配置与诊断
