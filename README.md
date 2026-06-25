@@ -38,7 +38,8 @@ tdx <command> [args]
 ## 当前验证状态
 
 - 2026-06-25 已在真实通达信 TQ 客户端环境完成基础接口冒烟验证
-- 当前基础命令集已完成一轮真实 TQ 串行验证；详细记录见 [基础接口真实 TQ 冒烟记录](docs/interfaces/BASIC_TQ_SMOKE_2026-06-25.md)
+- 当前基础命令集已完成一轮真实 TQ 串行验证：共 35 条命令，34 条返回有效结果，1 条样例因返回空 JSON 被按失败计入校验
+- 详细记录见 [基础接口真实 TQ 冒烟记录](docs/interfaces/BASIC_TQ_SMOKE_2026-06-25.md)
 - 单接口测试状态与兼容性说明见 [基础接口测试状态](docs/interfaces/TEST_STATUS.md)
 
 ## 运行前提

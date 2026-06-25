@@ -1,6 +1,6 @@
 # 基础接口测试记录
 
-更新日期：2026-06-24
+更新日期：2026-06-25
 
 ## 说明
 
@@ -30,7 +30,7 @@
 | 11 | `get_gb_info` | `scripts/get_gb_info.py` | 通过 | 指定日期股本数据正常返回 |
 | 12 | `get_kzz_info` | `scripts/get_kzz_info.py` | 通过 | 使用当前 `market=32` 可返回的可转债代码测试通过 |
 | 13 | `get_ipo_info` | `scripts/get_ipo_info.py` | 通过 | 新股/新债申购信息正常返回 |
-| 14 | `get_trackzs_etf_info` | `scripts/get_trackzs_etf_info.py` | 通过 | 指数跟踪 ETF 列表正常返回 |
+| 14 | `get_trackzs_etf_info` | `scripts/get_trackzs_etf_info.py` | 部分通过 | 当前样例 `000300.CSI` 可返回成功退出码，但可能仅得到空 JSON；详见 `BASIC_TQ_SMOKE_2026-06-25.md` |
 | 15 | `get_financial_data` | `scripts/get_financial_data.py` | 通过 | `FN1`、`FN8`、`FN134` 正常返回 |
 | 16 | `get_financial_data_by_date` | `scripts/get_financial_data_by_date.py` | 部分通过 | `--year 0 --mmdd 0` 正常；`--year 2024 --mmdd 1231` 返回 `--` |
 | 17 | `get_gpjy_value` | `scripts/get_gpjy_value.py` | 通过 | 股票交易数据正常返回 |
@@ -80,7 +80,9 @@
 
 ## 当前结论
 
-- `01` 到 `15`：通过
+- `01` 到 `13`：通过
+- `14`：部分通过
+- `15`：通过
 - `16`：部分通过
 - `17` 到 `27`：通过
 - `28`：部分通过
@@ -95,6 +97,7 @@
 ## 备注
 
 - `get_kzz_info` 测试前，优先先跑 `python scripts/get_stock_list.py --market 32 --list_type 1`，再从结果里挑当前实际存在的可转债代码测试。
+- `get_trackzs_etf_info` 当前至少要区分“退出码成功”和“是否返回有效 ETF 数据”两层结果；`000300.CSI` 在 2026-06-25 的真实 TQ 冒烟中返回 `{}`，并伴随 `server return none`。
 - `get_financial_data_by_date` 当前不做语义修正，保持原始接口行为；后续如需深入排查，应单独针对年份/报告期组合测试。
 - `subscribe_hq` 在部分 `tqcenter.py` 版本中必须传合法回调函数，当前脚本已内置最小空回调用于命令行测试。
 - `subscribe_hq`、`subscribe_quote` 现已补 `keep_alive` 运行模式；默认仍是“发起订阅并立即返回结果”的测试方式，如需持续接收回调，需显式传 `--keep_alive true`。

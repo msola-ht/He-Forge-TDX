@@ -78,7 +78,7 @@ python scripts/diagnostics/run_basic_tq_smoke.py --include-write-ops --show_outp
 
 ## 备注
 
-- 本次冒烟以“命令可运行并返回成功退出码”为通过标准。
+- 本报告同时记录“退出码是否成功”和“按当前仓库校验规则是否得到有效结果”两套口径。
 - `get-trackzs-etf-info` 在本次样例 `000300.CSI` 下返回 `{}`，同时 stderr 含 `server return none`；当前仓库的冒烟脚本已把这类“空 JSON 成功返回”按失败处理，不把它当作有效数据样例。
 - `formula-set-data` 依赖 `formula-format-data` 输出文件；冒烟脚本当前会自动生成并使用临时文件：
   `%TEMP%\tdx_basic_tq_smoke\formula_format_000001_SZ.json`
