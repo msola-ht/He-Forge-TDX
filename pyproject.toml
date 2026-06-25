@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tdx-v2"
+version = "0.1.0"
+description = "通达信 TQ Python 非交易接口命令行仓库"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["tongdaxin", "tdx", "tq-python", "cli", "quant"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial :: Investment",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/msola-ht/He-Forge-TDX"
+Repository = "https://github.com/msola-ht/He-Forge-TDX"
+Issues = "https://github.com/msola-ht/He-Forge-TDX/issues"
+Documentation = "https://github.com/msola-ht/He-Forge-TDX#readme"
+
+[project.scripts]
+tdx = "lib.tdx_unified:console_main"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+include = ["lib*", "scripts"]

@@ -1,0 +1,9 @@
+exclude lib/tdx_config.json
+exclude lib/tdx_subscribe_state.json
+prune artifacts
+prune build
+prune dist
+prune output
+prune tdx_v2.egg-info
+global-exclude __pycache__
+global-exclude *.py[cod]

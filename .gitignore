@@ -1,0 +1,16 @@
+lib/tdx_subscribe_state.json
+__pycache__/
+*.pyc
+*.egg-info/
+.DS_Store
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+artifacts/
+output/
+lib/tdx_config.json
