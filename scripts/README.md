@@ -22,6 +22,17 @@ python tdx.py <command> [args]
 - 所有对外命令脚本统一支持：`--output raw|json|table`
 - 所有走 TQ 的 Python 脚本启动前都会先做一次基础连通性检测
 - 如果基础检测失败，先运行 `python scripts/diagnose_tdx_path.py --probe stock_list --market 5 --output json`
+- 通用基础接口不只支持 A 股；大多数 `--stock_code` / `--stock_list` 参数都直接传“代码.市场”即可，例如 `000001.SZ`、`600000.SH`、`00700.HK`、`AAPL.US`
+- 不同市场优先通过代码后缀区分，不要把美股、港股代码按 A 股格式传入
+- 需要按市场枚举传参的脚本，例如 `get_stock_list`、`diagnose_tdx_path --probe stock_list`，可参考 [通达信常用参数与枚举](../docs/interfaces/PARAMETERS.md)；例如 `.US=74`、`.HK=31`
+
+### 非 A 股使用方式
+
+- 美股快照：`python scripts/get_market_snapshot.py --stock_code AAPL.US --output json`
+- 美股 K 线：`python scripts/get_market_data.py --stock_list AAPL.US --period 1d --count 5 --output json`
+- 港股快照：`python scripts/get_market_snapshot.py --stock_code 00700.HK --output json`
+- 港股 K 线：`python scripts/get_market_data.py --stock_list 00700.HK --period 1d --count 5 --output json`
+- 如果不确定证券代码，可先模糊检索：`python scripts/get_match_stkinfo.py --key_word AAPL --output json`
 
 ## 路径配置与诊断
 

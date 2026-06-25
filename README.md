@@ -128,6 +128,8 @@ tdx <command> [args]
 
 现有 `python scripts/<script>.py ...` 用法继续保留，统一入口优先用于基础接口。
 
+通用基础接口不只支持 A 股；大多数 `--stock_code` / `--stock_list` 参数都直接传“代码.市场”即可，例如 `000001.SZ`、`600000.SH`、`00700.HK`、`AAPL.US`。需要按市场枚举传参的脚本，可参考 [通达信常用参数与枚举](docs/interfaces/PARAMETERS.md) 中的市场类型表，例如 `.HK=31`、`.US=74`。
+
 ## 首次配置
 
 优先走脚本化配置：
@@ -158,6 +160,14 @@ python tdx.py get-stock-list --market 5 --list_type 1 --output json
 python tdx.py get-market-snapshot --stock_code 000001.SZ --output json
 python tdx.py get-market-data --stock_list 000001.SZ --period 1d --count 5 --output json
 python tdx.py get-trading-calendar --market SH --start_time 20260601 --end_time 20260630 --output json
+```
+
+非 A 股示例：
+
+```bash
+python tdx.py get-market-snapshot --stock_code AAPL.US --output json
+python tdx.py get-market-data --stock_list AAPL.US --period 1d --count 5 --output json
+python tdx.py get-market-snapshot --stock_code 00700.HK --output json
 ```
 
 ## 项目结构

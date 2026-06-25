@@ -14,3 +14,7 @@ dist/
 artifacts/
 output/
 lib/tdx_config.json
+skills/tdx-direct-use/bundle/
+skills/tdx-direct-use/dist/
+.agents/skills/tdx-direct-use/bundle/
+.agents/skills/tdx-direct-use/dist/
