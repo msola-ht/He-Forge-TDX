@@ -53,8 +53,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--trackzs_code",
-        default="000300.CSI",
-        help="指数跟踪 ETF 测试用指数代码，默认 000300.CSI",
+        default="950162.CSI",
+        help="指数跟踪 ETF 测试用指数代码，默认 950162.CSI",
     )
     parser.add_argument(
         "--kzz_stock_code",
